@@ -2,6 +2,8 @@ import pygame
 import numpy
 import time
 
+import patrons
+
 pygame.init()
 
 # Alçada i amplada de la pantalla
@@ -27,34 +29,11 @@ dimCH = height / nyC
 gameState = numpy.zeros((nxC, nyC))
 
 # Autòmats
-
-    # Oscil·lador1
-gameState[3, 2] = 1
-gameState[4, 2] = 1
-gameState[3, 3] = 1
-gameState[4, 3] = 1
-gameState[6, 3] = 1
-gameState[7, 4] = 1
-gameState[4, 5] = 1
-gameState[5, 6] = 1
-gameState[7, 6] = 1
-gameState[7, 7] = 1
-gameState[8, 6] = 1
-gameState[8, 7] = 1
+patrons.carregar_naus(gameState)
+#patrons.carregar_osciladors(gameState)
 
 
-    # Nau1
-gameState[3, 17] = 1
-gameState[5, 18] = 1
-gameState[6, 19] = 1
-gameState[6, 20] = 1
-gameState[2, 21] = 1
-gameState[1, 18] = 1
-gameState[1, 20] = 1
-gameState[3, 21] = 1
-gameState[4, 21] = 1
-gameState[5, 21] = 1
-gameState[6, 21] = 1
+
 
 
 # Control de l'execució del joc
@@ -63,7 +42,7 @@ pauseExect = True
 # Bucle d'execució
 while True:
 
-    newGameState = numpy.copy(gameState);
+    newGameState = numpy.copy(gameState)
     screen.fill(bg)
     time.sleep(0.1)
 
@@ -124,3 +103,5 @@ while True:
 
     # Actualitzem la pantalla
     pygame.display.flip()
+
+
